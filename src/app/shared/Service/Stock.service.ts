@@ -8,21 +8,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class StockService {
-  
+
   readonly API_URL = environment.API_Base;
 
   constructor(private httpClient: HttpClient) { }
 
   getAllStocks() {
-    return this.httpClient.get(`${this.API_URL}/retrieve-all-stocks`)
+    return this.httpClient.get(`${this.API_URL}/stock/retrieve-all-stocks`)
   }
   addStock(stock : any) {
-    return this.httpClient.post(`${this.API_URL}/add-stock`, stock)
+    return this.httpClient.post(`${this.API_URL}/stock/add-stock`, stock)
   }
   editStock(stock : any){
-    return this.httpClient.put(`${this.API_URL}/modify-stock`, stock)
+    return this.httpClient.put(`${this.API_URL}/stock/modify-stock`, stock)
   }
   deleteStock(idStock : any){
-    return  this.httpClient.delete(`${this.API_URL}/remove-stock/${idStock}`)
+    return  this.httpClient.delete(`${this.API_URL}/stock/remove-stock/${idStock}`)
   }
 }
